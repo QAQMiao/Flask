@@ -3,7 +3,9 @@ from flask import render_template
 from flask.ext.bootstrap import Bootstrap
 from flask.ext.moment import  Moment
 from datetime import datetime
+import gpio as gpio
 import wtf as wtf
+
 # from flask.ext.bootstrap import Bootstrap
 
 
@@ -41,9 +43,9 @@ def index():
 def control():
     if request.method == 'POST':
         if request.form['submit'] == 'Do Something':
-            print('Do Something')
+            gpio.blink(10,1)
         elif request.form['submit'] == 'Do Something Else':
-            print('Do Something Else')
+            gpio.blink(10,1)
     return render_template('control.html')
 
 @app.errorhandler(404)
@@ -55,5 +57,5 @@ def page_error(e):
     return render_template('500.html'),500
 
 if __name__ == '__main__':
-    app.run(debug='true')
+    app.run(host='192.168.191.2',debug='true')
 
