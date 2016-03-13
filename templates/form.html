@@ -2,7 +2,8 @@
 {% import "bootstrap/wtf.html" as wtf %}
 {% block title %}Flasky{% endblock %}
 {% block navbar %}
-    <div class="navbar navbar-default collapse navbar-collapse" role="navigation" id="example-navbar-collapse">
+    <div class="navbar navbar-default collapse navbar-collapse" role="navigation" id="example-navbar-collapse"
+         xmlns="http://www.w3.org/1999/html">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle"
@@ -50,4 +51,6 @@
         <h1>Hello, {% if name %}{{ name }}{% else %}Stranger{% endif %}!</h1>
     </div>
     {{ wtf.quick_form(form) }}
+
+
 {% endblock %}

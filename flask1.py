@@ -1,4 +1,4 @@
-from flask import Flask, url_for, redirect, session, flash
+from flask import Flask, url_for, redirect, session, flash, request
 from flask import render_template
 from flask.ext.bootstrap import Bootstrap
 from flask.ext.moment import  Moment
@@ -37,6 +37,14 @@ def index():
         return redirect(url_for('index'))
     return render_template('form.html', form=form, name=session.get('name'))
 
+@app.route('/control', methods=['GET', 'POST'])
+def control():
+    if request.method == 'POST':
+        if request.form['submit'] == 'Do Something':
+            print('Do Something')
+        elif request.form['submit'] == 'Do Something Else':
+            print('Do Something Else')
+    return render_template('control.html')
 
 @app.errorhandler(404)
 def page_not_found(e):

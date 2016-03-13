@@ -33,6 +33,7 @@ __author__ = 'zhkmx'
 from flask.ext.wtf import Form
 from wtforms import StringField, SubmitField
 from wtforms.validators import Required
+from flask.ext.sqlalchemy import SQLAlchemy
 
 
 class NameForm(Form):
